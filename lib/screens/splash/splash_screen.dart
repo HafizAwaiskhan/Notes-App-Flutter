@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_flutter/screens/notes_screen.dart';
+import 'package:notes_app_flutter/screens/memes/memes_home_page.dart';
+import 'package:notes_app_flutter/screens/notes/notes_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -42,7 +43,7 @@ class _SplashState extends State<Splash> {
     await Future.delayed(Duration(seconds: 3), () {});
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => NotesScreen()),
+        MaterialPageRoute(builder: (context) => MemesHomePage()),
       );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app_flutter/database/notes_db.dart';
-import 'package:notes_app_flutter/screens/notes_card.dart';
+import 'package:notes_app_flutter/screens/notes/notes_card.dart';
 
 import 'notes_dialog.dart';
 

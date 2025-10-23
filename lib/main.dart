@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app_flutter/screens/splash_screen.dart';
+import 'package:notes_app_flutter/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const NotesApp());
@@ -11,6 +11,7 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
