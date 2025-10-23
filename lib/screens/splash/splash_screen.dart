@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app_flutter/screens/memes/memes_home_page.dart';
-import 'package:notes_app_flutter/screens/notes/notes_screen.dart';
+import 'package:notes_app_flutter/screens/notes/notes_home_page.dart';
+
+import '../project_selection_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -41,9 +43,15 @@ class _SplashState extends State<Splash> {
 
   _navigateToNotesScreen() async {
     await Future.delayed(Duration(seconds: 3), () {});
+    if (mounted) {
+      // If mounted is true, the context is safe to use.
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MemesHomePage()),
+        MaterialPageRoute(builder: (context) => const ProjectSelectionScreen()),
       );
+    } else {
+      // Optional: print a message if the screen was disposed before navigation
+      debugPrint("Splash screen was disposed before navigation could occur.");
+    }
   }
 }

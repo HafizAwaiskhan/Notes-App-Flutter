@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:path/path.dart';
 
-class MemeCard extends StatefulWidget {
+class MemeCard extends StatelessWidget {
   final String title;
   final String description;
   final String imageUrl;
@@ -21,64 +19,41 @@ class MemeCard extends StatefulWidget {
   });
 
   @override
-  State<MemeCard> createState() => _MemeCard();
-}
-
-class _MemeCard extends State<MemeCard> {
-  @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      elevation: 6,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              widget.title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 24,
+      margin: const EdgeInsets.all(12.0),
+      elevation: 6.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.black87,
               ),
             ),
-          ),
-
-          const SizedBox(height: 10),
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              widget.description,
-              maxLines: 4,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-                color: Colors.black,
-              ),
+            const SizedBox(height: 8),
+            // Use Image.network or a better image widget here
+            Image.network(
+              imageUrl,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) =>
+              const Center(child: Text('Image failed to load')),
             ),
-          ),
-
-          const SizedBox(height: 20),
-
-          CachedNetworkImage(imageUrl: widget.imageUrl,
-          placeholder: (context , url) => Center(child: CircularProgressIndicator()),
-          errorWidget: (context , url , error) => Icon(Icons.error),
-            width: double.infinity,
-            height: 200,
-            fit: BoxFit.cover,
-          ),
-
-          const SizedBox(height: 20)
-
-
-        ],
+            const SizedBox(height: 8),
+            Text('Author: $author',
+                style: const TextStyle(color: Colors.grey)),
+            Text('Upvotes: $ups',
+                style: const TextStyle(color: Colors.green)),
+          ],
+        ),
       ),
     );
   }

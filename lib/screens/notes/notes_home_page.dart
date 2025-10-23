@@ -4,14 +4,14 @@ import 'package:notes_app_flutter/screens/notes/notes_card.dart';
 
 import 'notes_dialog.dart';
 
-class NotesScreen extends StatefulWidget {
-  const NotesScreen({super.key});
+class NotesHomePage extends StatefulWidget {
+  const NotesHomePage({super.key});
 
   @override
-  State<NotesScreen> createState() => _NotesScreenState();
+  State<NotesHomePage> createState() => _NotesHomePageState();
 }
 
-class _NotesScreenState extends State<NotesScreen> {
+class _NotesHomePageState extends State<NotesHomePage> {
   List<Map<String, dynamic>> notes = [];
 
   @override
