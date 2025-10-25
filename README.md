@@ -1,6 +1,6 @@
-# notes_app_flutter
+# Flutter-Multi-apps
 
-A new Flutter project in which we are going to have a notes app.
+A new Flutter project in which we are going to have multiple apps to clear flutter concepts.
 
 ## Getting Started
 
